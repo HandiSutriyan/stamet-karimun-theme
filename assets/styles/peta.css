@@ -1,0 +1,53 @@
+.peta-container {
+  position: relative;
+  min-height: 500px;
+  background-color: #c4c4c4;
+  border-radius: 10px;
+}
+
+#peta {
+  height: 500px;
+}
+
+.row-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  text-align: center;
+  background-color: #767272;
+}
+
+.tab {
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+  color: #ffffff;
+}
+
+#tgl-tab {
+  border-radius: 10px 10px 0px 0px;
+}
+
+#foot-tab {
+  border-radius: 0px 0px 10px 10px;
+  /* overflow: scroll; */
+}
+
+#tgl-tab > .tab {
+  width: 200px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#foot-tab > .tab {
+  width: 80px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.active {
+  background-color: #c4c4c4;
+  color: black;
+}
+
+.tab:hover {
+  background-color: #3c3939;
+  color: #ffffff;
+}

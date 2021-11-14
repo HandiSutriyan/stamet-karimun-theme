@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.banner {
+  background-image: url("/assets/img/header.jpg");
+  background-attachment: fixed;
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.filter {
+  position: absolute;
+  min-height: 220px;
+  background-color: #fbf5fb;
+  background-image: linear-gradient(0deg, #fbf5fb 0%, #3db6ce 100%);
+  width: 100%;
+  opacity: 0.5;
+}
+
+.site-name {
+  padding: 20px;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+}
+
+.site-name > .logo {
+  margin-right: 10px;
+}
+
+.site-name > .brand {
+  padding: 10px;
+}
+.brand > .instansi {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.brand > .station-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.topnav {
+  display: block;
+}
+
+.main-menu {
+  min-height: 30px;
+  background-color: #262424;
+  color: #fff;
+  padding: 10px 15px 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-menu > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.main-menu > ul > li {
+  margin-right: 20px;
+}
+
+.main-menu > ul > li > a {
+  text-decoration: none;
+  color: #fff;
+}
+.main-menu > ul > li > a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 10px 20px;
+}
+
+article {
+  width: 70%;
+  padding-right: 30px;
+}
+.gline {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  height: 5px;
+  background-color: #28c74b;
+  border-style: none;
+}
+
+.warning {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0px;
+}
+
+.warning > .sign {
+  background-color: #fb700b;
+  border-radius: 10px 0px 0px 10px;
+  color: #fff;
+  padding: 10px;
+  margin-right: 10px;
+  width: 20%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+.warning > .warn-text {
+  background-color: #fb700b;
+  border-radius: 0px 10px 10px 0px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+  width: 80%;
+}
+
+.news {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+
+.news-feed > a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #151616;
+}
+
+.news-feed > img {
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.news-article > .head-image {
+  text-align: center;
+  margin: 15px;
+}
+
+.news > .filter:hover {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #606161 0%, #eeeeee 100%);
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.news > .filter {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #151616 0%, #eeeeee 100%);
+  opacity: 0.6;
+}
+
+.news .headline {
+  padding: 10px;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+.gallery {
+  margin-bottom: 20px;
+}
+.gallery a > img {
+  max-width: 200px;
+}
+
+.col {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.row > img {
+  width: 150px;
+  height: 150px;
+}
+
+.col > img {
+  width: 150px;
+  height: 150px;
+}
+
+.img-round {
+  border-radius: 500px;
+}
+
+aside {
+  width: 27%;
+}
+
+.card {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card > .container {
+  padding: 10px 16px;
+  background-color: gray;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#buletin,
+.fb {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#buletin,
+.fb > img {
+  width: 100%;
+}
+
+footer > .foot-brand {
+  background-color: #3c3939;
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.foot-brand > .foot-col {
+  width: 25%;
+  margin-right: 20px;
+}
+
+footer > .copyright {
+  min-height: 20px;
+  padding: 15px;
+  background-color: #262424;
+  color: #fff;
+  text-align: center;
+}
+
+.foot-head {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.foot-text {
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 15px;
+}
+.foot-text > ul {
+  list-style: none;
+}
+
+.foot-text > ul > li {
+  margin-bottom: 10px;
+}
+
+.foot-text > ul > li > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.foot-text > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+.peta {
+  height: 200px;
+  padding-top: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    width: 100%;
+  }
+  .banner {
+    background-color: gray;
+    background-image: none;
+    min-height: 60px;
+    color: #fff;
+  }
+  .banner > .filter {
+    display: none;
+  }
+  .site-name {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .site-name > .logo {
+    margin-right: 0px;
+  }
+
+  .site-name > .logo > img {
+    padding: 10px 0px;
+    width: 30px;
+  }
+
+  .site-name > .brand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .brand > .instansi {
+    display: none;
+  }
+
+  .brand > .station-name {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+  }
+  .warning > .sign {
+    margin-right: 1px;
+    font-size: 14px;
+    padding-right: 0px;
+  }
+
+  article {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .gallery a > img {
+    max-width: 100%;
+  }
+
+  aside {
+    width: 100%;
+  }
+  .news {
+    height: 250px;
+  }
+
+  footer > .foot-brand {
+    flex-direction: column;
+  }
+  .foot-brand > .foot-col {
+    width: 100%;
+  }
+}
