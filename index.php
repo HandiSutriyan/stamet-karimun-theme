@@ -69,6 +69,7 @@ get_header();
                                 <?php the_title(); ?>
                             </h2>
                             <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?></i></small>
+                            <p><?php the_excerpt(__('(more…)')); ?></p>
                             </div>
                         </a>
                     </div>

@@ -28,3 +28,7 @@ the_post_thumbnail( 'full'); // Full resolution (original size uploaded)
 add_action('wp_enqueue_scripts','stamet_files');
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'single-post-thumbnail', 500, 9999 );
+
+register_nav_menus( array(
+    'primary' => __('Primary Menu'),
+));

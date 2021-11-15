@@ -12,8 +12,10 @@
             <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?> </i></small>
           </div>
           <hr class="gline" />
-          <?php echo has_post_thumbnail('single-post-thumbnail') ? the_post_thumbnail('single-post-thumbnail'):"";?>
-          <p><?php the_content()?></p>
+          <div class="head-image">
+            <?php echo has_post_thumbnail() ? the_post_thumbnail('single-post-thumbnail'):"";?>
+          </div>
+          <div class="post-text" style="text-align: justify"><?php the_content()?></div>
         </div>
 <?php    
     }

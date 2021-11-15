@@ -8,8 +8,7 @@
       href="/assets/img/favicon.ico"
       type="image/x-icon"
     />
-    <title>Stasiun Meteorologi RHA-Karimun</title>
-
+    <title><?php bloginfo('name')." ".wp_title(); ?></title>
     <?php wp_head(); ?>
   </head>
   <body>
@@ -18,11 +17,11 @@
         <div class="filter"></div>
 
         <div class="site-name">
-        <a href="<?php echo site_url() ?>">
-          <div class="logo">
-            <img src="<?php echo get_theme_file_uri('/assets/img/bmkg.png') ?>" alt="Logo bmkg" width="100" />
-          </div>
-        </a>
+          <a href="<?php echo site_url() ?>">
+            <div class="logo">
+              <img src="<?php echo get_theme_file_uri('/assets/img/bmkg.png') ?>" alt="Logo bmkg" width="100" />
+            </div>
+          </a>
           <div class="brand">
             <span class="instansi">
               Badan Meteorologi Klimatologi dan Geofisika</span
@@ -36,31 +35,10 @@
         </div>
       </div>
       <div class="topnav" id="myTopnav">
-        <a href="<?php echo site_url() ?>">Beranda</a>
-        <div class="dropdown">
-          <button class="dropbtn">
-            Profil
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="<?php echo site_url('/visi-misi') ?>">Visi Misi</a>
-            <a href="">Tugas & Fungsi</a>
-          </div>
-        </div>
-        <a href="">Cuaca</a>
-        <a href="">Iklim</a>
-        <a href="">Gempa & Tsunami</a>
-        <div class="dropdown">
-          <button class="dropbtn">
-            Layanan Data
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="">Penelitian</a>
-            <a href="">Komersial</a>
-          </div>
-        </div>
-        <a href="">Indeks Kepuasan Masyarakat</a>
+      <?php
+       $args = array('theme_location' => 'primary');
+       wp_nav_menu( $args );
+       ?>
         <a
           href="javascript:void(0);"
           style="font-size: 15px"

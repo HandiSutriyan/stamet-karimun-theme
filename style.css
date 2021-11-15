@@ -169,7 +169,9 @@ article {
   height: 150px;
   margin-bottom: 10px;
 }
-
+.news-feed > a > .headline-feed {
+  padding: 4px;
+}
 .news-article > .head-image {
   text-align: center;
   margin: 15px;
@@ -199,6 +201,15 @@ article {
   color: #fff;
   position: absolute;
   bottom: 0;
+}
+
+.post-text {
+  text-align: justify;
+}
+.post-text p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  line-height: normal;
 }
 
 .text-bold {
@@ -381,11 +392,11 @@ footer > .copyright {
     flex-direction: row;
     justify-content: center;
   }
-  .site-name > .logo {
+  .site-name > a > .logo {
     margin-right: 0px;
   }
 
-  .site-name > .logo > img {
+  .site-name > a > .logo > img {
     padding: 10px 0px;
     width: 30px;
   }
