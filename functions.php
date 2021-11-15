@@ -16,6 +16,15 @@ function stamet_files(){
     wp_enqueue_style( 'stamet_main_styles', get_stylesheet_uri());
 }
 
+the_post_thumbnail( 'thumbnail' ); // Thumbnail (default 150px x 150px max)
+the_post_thumbnail( 'medium'); // Medium resolution (default 300px x 300px max)
+the_post_thumbnail( 'large' ); // Large resolution (default 640px x 640px max)
+the_post_thumbnail( 'full'); // Full resolution (original size uploaded)
+// Image size for single posts
+
+
+
 
 add_action('wp_enqueue_scripts','stamet_files');
 add_theme_support( 'post-thumbnails' );
+add_image_size( 'single-post-thumbnail', 500, 9999 );

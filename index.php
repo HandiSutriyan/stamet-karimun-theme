@@ -61,11 +61,7 @@ get_header();
                   the_post();
                  ?>
                     <div class="news">
-                        <img
-                            src="<?php echo get_theme_file_uri('/assets/img/dokumentasi/pelatihan daring/berita2.JPG') ?>"
-                            alt="berita"
-                            width="100%"
-                        />
+                    <img src="<?php echo has_post_thumbnail() ? the_post_thumbnail('large'):get_theme_file_uri('/assets/img/no-image.jpg');?>"/>
                         <div class="filter"></div>
                         <a href="<?php the_permalink() ?>">
                             <div class="headline">
@@ -79,36 +75,7 @@ get_header();
                  <? 
               }  
             ?>
-            
-            <div class="news">
-              <img src="/assets/img/berita.jpg" alt="berita" width="100%" />
-              <div class="filter"></div>
-              <a href="news.html">
-                <div class="headline">
-                  <h2>
-                    Cuaca di Karimun, Pemain Layangan Harus Waspadai Petir dan
-                    Puting Beliung
-                  </h2>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
-                </div>
-              </a>
-            </div>
-            <div class="news">
-              <img
-                src="/assets/img/dokumentasi/vaksinasi/vaksinasi.JPG"
-                alt="berita"
-                width="100%"
-              />
-              <div class="filter"></div>
-              <a href="news.html">
-                <div class="headline">
-                  <h2>
-                    Kegiatan Vaksinasi Massal di Bandara Raja Haji Abdullah
-                  </h2>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
-                </div>
-              </a>
-            </div>
+
           </div>
         </div>
       </article>

@@ -12,12 +12,11 @@
             <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?> </i></small>
           </div>
           <hr class="gline" />
-
+          <?php echo has_post_thumbnail('single-post-thumbnail') ? the_post_thumbnail('single-post-thumbnail'):"";?>
           <p><?php the_content()?></p>
         </div>
 <?php    
     }
-    echo get_the_post_thumbnail_url( $the_query->ID, array( 500, 400) );
 ?>
 
 <!-- swiper -->
@@ -26,42 +25,25 @@
           <hr class="gline" />
           <div class="owl-carousel" id="news-feed">
             
+            <?php
+            $the_query = new WP_Query( 'posts_per_page=5' );
+            while ($the_query -> have_posts()) : $the_query -> the_post();
+            ?>
             <div class="news-feed">
-              <img src="/assets/img/buleti.png" alt="berita" width="100%" />
-              <a href="#">
+              <!-- <img src="/assets/img/buleti.png" alt="berita" width="100%" /> -->
+              <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+              <a href="<?php the_permalink() ?>">
                 <div class="headline-feed">
                   <p>
-                    Cuaca di Karimun, Pemain Layangan Harus Waspadai Petir dan
-                    Puting Beliung
+                    <?php the_title(); ?>
                   </p>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
+                  <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?> </i></small>
                 </div>
               </a>
             </div>
-            <div class="news-feed">
-              <img src="/assets/img/satelit.jpg" alt="berita" width="100%" />
-              <a href="#">
-                <div class="headline-feed">
-                  <p>
-                    Cuaca di Karimun, Pemain Layangan Harus Waspadai Petir dan
-                    Puting Beliung
-                  </p>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
-                </div>
-              </a>
-            </div>
-            <div class="news-feed">
-              <img src="/assets/img/satelit.jpg" alt="berita" width="100%" />
-              <a href="#">
-                <div class="headline-feed">
-                  <p>
-                    Cuaca di Karimun, Pemain Layangan Harus Waspadai Petir dan
-                    Puting Beliung
-                  </p>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
-                </div>
-              </a>
-            </div>
+            <?php endwhile;
+            wp_reset_postdata();?>
+
           </div>
         </div>
       </article>

@@ -16,7 +16,10 @@
          
         </div>
 
-      </article>
+<?php    
+    }
+?>
+</article>
       <aside>
         <div class="card">
           <div class="container">
@@ -27,11 +30,6 @@
             alt="Citra Satelit"
             style="width: 100%"
           />
-          <!-- <img
-            src="http://satelit.bmkg.go.id/IMAGE/HIMA/H08_EH_Kepri.png"
-            alt="Citra Radar"
-            style="width: 100%"
-          /> -->
         </div>
         <div class="owl-carousel" id="buletin">
           <div class="item">
@@ -49,10 +47,5 @@
         </div>
       </aside>
     </section>
-
-
-<?php    
-    }
-?>
 
 <?php get_footer() ?>

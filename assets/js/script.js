@@ -26,6 +26,9 @@ $(document).ready(function () {
   $("#news-feed").owlCarousel({
     loop: true,
     margin: 30,
+    autoplay: true,
+    autoplayTimeout: 2500,
+    autoplaySpeed: 1500,
     responsive: {
       0: {
         margin: 20,
