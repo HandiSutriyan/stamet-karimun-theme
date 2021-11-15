@@ -9,12 +9,12 @@ get_header();
             <hr class="gline" />
             <div class="peta-container">
               <div class="row-tab" id="tgl-tab">
-                <div class="tab active">4 Oktober</div>
-                <div class="tab">4 Oktober</div>
-                <div class="tab">4 Oktober</div>
+                <div class="tab active">Memuat</div>
+                <div class="tab">Memuat</div>
+                <div class="tab">Memuat</div>
               </div>
               <div class="peta" id="peta">
-                <!-- <img src="assets/img/peta cuaca.png" alt="buletin" /> -->
+                <div class="lds-ripple"><div></div><div></div></div>
               </div>
               <div class="row-tab" id="foot-tab">
                 <div class="tab">00:00</div>
@@ -31,7 +31,7 @@ get_header();
           <div class="warning">
             <div class="sign">
               <img
-                src="/assets/img/warning.png"
+                src="<?php echo get_theme_file_uri('/assets/img/warning.png') ?>"
                 alt="warning"
                 width="40"
               /><br />
@@ -53,25 +53,33 @@ get_header();
             </div>
           </div>
 
+         
           <!-- swiper -->
           <div class="owl-carousel owl-theme" id="news">
-            <div class="news">
-              <img
-                src="/assets/img/dokumentasi/pelatihan daring/berita2.JPG"
-                alt="berita"
-                width="100%"
-              />
-              <div class="filter"></div>
-              <a href="news.html">
-                <div class="headline">
-                  <h2>
-                    BMKG Serahkan 1000 Paket Beasiswa Pelatihan Vokasi Daring,
-                    Bentuk Milenial Cerdas dan Terampil
-                  </h2>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
-                </div>
-              </a>
-            </div>
+          <?php
+              while(have_posts()){
+                  the_post();
+                 ?>
+                    <div class="news">
+                        <img
+                            src="<?php echo get_theme_file_uri('/assets/img/dokumentasi/pelatihan daring/berita2.JPG') ?>"
+                            alt="berita"
+                            width="100%"
+                        />
+                        <div class="filter"></div>
+                        <a href="<?php the_permalink() ?>">
+                            <div class="headline">
+                            <h2>
+                                <?php the_title(); ?>
+                            </h2>
+                            <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?></i></small>
+                            </div>
+                        </a>
+                    </div>
+                 <? 
+              }  
+            ?>
+            
             <div class="news">
               <img src="/assets/img/berita.jpg" alt="berita" width="100%" />
               <div class="filter"></div>

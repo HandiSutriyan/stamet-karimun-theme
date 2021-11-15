@@ -9,30 +9,22 @@
         <div class="news-article" style="margin-bottom: 100px">
           <div class="headline">
             <h2><?php the_title();?></h2>
-            <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
+            <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?> </i></small>
           </div>
           <hr class="gline" />
 
           <p><?php the_content()?></p>
         </div>
-        <!-- swiper -->
-        <div class="feed">
+<?php    
+    }
+    echo get_the_post_thumbnail_url( $the_query->ID, array( 500, 400) );
+?>
+
+<!-- swiper -->
+<div class="feed">
           <h3>Berita Lainnya</h3>
           <hr class="gline" />
           <div class="owl-carousel" id="news-feed">
-            
-            <div class="news-feed">
-              <img src="/assets/img/berita.jpg" alt="berita" width="100%" />
-              <a href="#">
-                <div class="headline-feed">
-                  <p>
-                    Cuaca di Karimun, Pemain Layangan Harus Waspadai Petir dan
-                    Puting Beliung
-                  </p>
-                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
-                </div>
-              </a>
-            </div>
             
             <div class="news-feed">
               <img src="/assets/img/buleti.png" alt="berita" width="100%" />
@@ -105,10 +97,4 @@
         </div>
       </aside>
     </section>
-
-
-<?php    
-    }
-?>
-
 <?php get_footer() ?>

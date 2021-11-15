@@ -18,3 +18,4 @@ function stamet_files(){
 
 
 add_action('wp_enqueue_scripts','stamet_files');
+add_theme_support( 'post-thumbnails' );

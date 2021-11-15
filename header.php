@@ -43,7 +43,7 @@
             <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-            <a href="">Visi Misi</a>
+            <a href="<?php echo site_url('/visi-misi') ?>">Visi Misi</a>
             <a href="">Tugas & Fungsi</a>
           </div>
         </div>
