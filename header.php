@@ -36,7 +36,9 @@
       </div>
       <div class="topnav" id="myTopnav">
       <?php
-       $args = array('theme_location' => 'primary');
+       $args = array(
+          'theme_location' => 'primary'
+        );
        wp_nav_menu( $args );
        ?>
         <a
