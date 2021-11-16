@@ -1,11 +1,14 @@
 function myFunction() {
-  var x = document.getElementById("myTopnav");
+  let x = document.getElementById("myTopnav");
+  //let screen_width = document.body.clientWidth;
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
     x.className = "topnav";
   }
 }
+//window.addEventListener("resize", myFunction);
+
 $(document).ready(function () {
   $("#news").owlCarousel({
     loop: true,

@@ -35,6 +35,7 @@
         </div>
       </div>
       <div class="topnav" id="myTopnav">
+      <a href="<?php site_url(); ?>" class='menu-btn'>Beranda</a>
       <?php
        $args = array(
           'theme_location' => 'primary'

@@ -48,6 +48,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
+  margin-top: 50px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
@@ -77,12 +78,15 @@
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {
+  .topnav a:not(.menu-btn) {
     display: none;
   }
   .topnav a.icon {
     float: right;
     display: block;
+  }
+  .sub-menu {
+    margin-top: 0px;
   }
 }
 
