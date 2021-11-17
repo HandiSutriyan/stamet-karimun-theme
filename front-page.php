@@ -38,18 +38,25 @@ get_header();
               Peringatan Dini Cuaca Ekstrem
             </div>
             <div class="warn-text">
-              <b
-                >Berlaku selama 24 jam (31 Agustus 2021, 08.00 Wita - 01
-                September 2021, 08.00 Wita)</b
-              >
+              <?php
+              $peringatan_dini = new WP_Query( array( 'category_name' => 'warning' ) );
+              if ($peringatan_dini->have_posts()):
+              ?>
+              <b><a href="<?php the_permalink();?>"><?php the_title();?></a></b>
               <br />
               <br />
-              <p>
-                Waspada potensi tinggi gelombang laut yang dapat mencapai 2
-                meter atau lebih di Laut Bali, Selat Bali bagian selatan, Selat
-                Badung, Selat Lombok bagian selatan, dan Samudera Hindia selatan
-                Bali.
-              </p>
+              <p><?php the_excerpt() ?></p>
+              <?php
+              else:
+                ?>
+              <b><a href="#">Belum Ada Peringatan Dini Cuaca Ekstrem</a></b>
+              <br />
+              <br />
+              <p>Saat ini tidak terdapat peringatan dini terkait Cuaca Esktrem untuk wilayah Kabupaten Karimun dan sekitarnya.</p>
+              <?php
+              endif;
+              wp_reset_postdata();
+              ?>
             </div>
           </div>
 
@@ -61,7 +68,7 @@ get_header();
                   the_post();
                  ?>
                     <div class="news">
-                    <img src="<?php echo has_post_thumbnail() ? the_post_thumbnail('large'):get_theme_file_uri('/assets/img/no-image.jpg');?>"/>
+                    <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
                         <div class="filter"></div>
                         <a href="<?php the_permalink() ?>">
                             <div class="headline">
@@ -92,6 +99,18 @@ get_header();
           />
         </div>
         <div class="owl-carousel" id="buletin">
+          <?php
+          $buletin = new WP_Query( array( 'category_name' => 'buletin' ) );
+          if ($buletin->have_posts()):
+            while($buletin->have_posts()):the_post();
+            ?>
+            <div class="item">
+              <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+            </div>
+            <?php
+            endwhile;
+          else:
+          ?>
           <div class="item">
             <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
           </div>
@@ -101,6 +120,10 @@ get_header();
           <div class="item">
           <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
           </div>
+          <?php
+          endif;
+          ?>
+          
         </div>
         <div class="fb">
           <a class="twitter-timeline" data-lang="id" data-height="300" data-theme="light" href="https://twitter.com/bmkgkarimun?ref_src=twsrc%5Etfw">Tweets by bmkgkarimun</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

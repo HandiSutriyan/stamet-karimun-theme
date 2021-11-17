@@ -9,7 +9,7 @@
         <div class="news-article" style="margin-bottom: 100px">
           <div class="headline">
             <h2><?php the_title();?></h2>
-            <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?> </i></small>
+            <small class="post-meta"><?php echo get_the_date( 'j F Y', $postData[0]->ID)?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
           </div>
           <hr class="gline" />
           <div class="head-image">

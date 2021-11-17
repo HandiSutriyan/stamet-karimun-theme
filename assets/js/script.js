@@ -53,8 +53,8 @@ $(document).ready(function () {
     autoplay: true,
     autoplayTimeout: 7000,
   });
-  $(".gallery a").simpleLightbox({
-    sourceAttr: "href",
+  $(".blocks-gallery-item img").simpleLightbox({
+    sourceAttr: "src",
     overlay: true,
     spinner: true,
   });

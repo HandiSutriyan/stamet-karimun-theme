@@ -4,12 +4,34 @@ get_header();
 ?>
  <section class="content">
       <article>
+        <div class="head-page">
+            <?php
+            if (is_category()):
+                single_cat_title('Postingan pada Kategori ', true);
+              elseif (is_tag()):
+                single_cat_title('Postingan pada Tag ', true);
+              elseif (is_author()):
+                the_post();
+                echo "Arsip Postingan: ".get_the_author();
+                rewind_posts();
+              elseif (is_day()):
+                echo "Arsip Harian: ".get_the_date('j F Y');
+              elseif (is_month()):
+                echo "Arsip Bulan: ".get_the_date('F Y');
+              elseif(is_year()):
+                echo "Arsip Tahun: ".get_the_date('Y');
+              else:
+                echo "Arsip Postingan";
+              endif;
+            ?>
+             <hr class="gline" />
+        </div>
         <div class="forecast">
           <?php 
           if (have_posts()):
             while (have_posts()) : the_post();
           ?>
-            <div class="news-article" style="margin-bottom: 100px">
+            <div class="news-article" style="margin-bottom: 20px">
               <div class="headline">
                 <a href="<?php the_permalink() ?>"><h2><?php the_title();?></h2></a>
                 <small class="post-meta"><?php echo get_the_date( 'j F Y', $postData[0]->ID)?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
@@ -20,18 +42,33 @@ get_header();
             endwhile;
           else:
           ?>
-             <p class="notif">Maaf, konten tidak ditemukan :(</p>
+            <p class="notif">Maaf, tidak dapat ditemukan :(</p>
             <p>Kembali ke <a href="<?php echo site_url(); ?>">Beranda</a></p>
           <?php
           endif;
-          wp_reset_postdata();
           ?>
           
         </div>
       </article>
       <aside>
         <div class="card">
-          <?php dynamic_sidebar( 'sidebar1' ); ?>
+          <div class="container">
+            <h4><b>Kategori</b></h4>
+          </div>
+          <div class="card-content">
+            <?php echo the_category()?>
+          </div>
+        </div>
+        <div class="card">
+          <div class="container">
+            <h4><b>Arsip</b></h4>
+          </div>
+          <!-- <img
+            src="http://satelit.bmkg.go.id/IMAGE/ANIMASI/H08_EH_Kepri_m18.gif"
+            alt="Citra Satelit"
+            style="width: 100%"
+          /> -->
+        </div>
         <div class="owl-carousel" id="buletin">
           <div class="item">
             <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
