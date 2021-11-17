@@ -203,8 +203,23 @@ article {
   bottom: 0;
 }
 
+.news-article .headline > a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+.news-article .headline > a:hover {
+  text-decoration: none;
+  color: #28c74b;
+}
+.post-meta {
+  color: #606161;
+}
+.post-meta a {
+  color: #606161;
+}
 .post-text {
   text-align: justify;
+  margin-top: 10px;
 }
 .post-text p {
   font-size: 0.95rem;
@@ -269,6 +284,9 @@ aside {
   padding: 10px 16px;
   background-color: gray;
   border-radius: 10px 10px 0px 0px;
+}
+.card > .card-content {
+  padding: 5px;
 }
 
 #buletin,
