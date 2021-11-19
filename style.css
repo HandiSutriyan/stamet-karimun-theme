@@ -118,6 +118,7 @@ body {
 article {
   width: 68%;
   padding-right: 20px;
+  overflow-wrap: break-word;
 }
 
 .head-page {

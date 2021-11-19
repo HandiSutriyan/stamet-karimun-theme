@@ -1,23 +1,22 @@
 <?php get_header() ?>
-
+    <section class="content">
+      <article>
 <?php
     while(have_posts()){
         the_post(); 
     ?>
-    
-    <section class="content">
-      <article>
         <div class="news-article" style="margin-bottom: 100px">
           <div class="headline">
             <h2><?php the_title();?></h2>
             <small class="post-meta"><?php echo get_the_date( 'j F Y', $postData[0]->ID)?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
           </div>
           <hr class="gline" />
-          <div class="post-text" style="text-align: justify"><?php the_content()?></div>
+          <div class="post-text" style="text-align: justify"><?php echo the_content() ?></div>
         </div>
 <?php    
     }
 ?>
+      <div class="nav-page"><?php echo paginate_links(); ?></div>
 
 <!-- swiper -->
 <div class="feed">
