@@ -31,7 +31,20 @@ get_header();
       </article>
       <aside>
         <div class="card">
-          <?php dynamic_sidebar( 'sidebar1' ); ?>
+          <div class="container">
+            <h4><b>Kategori</b></h4>
+          </div>
+          <div class="card-content">
+            <ul class="cat_list">
+              <?php
+              $categories = get_categories();
+              foreach($categories as $category) {
+                echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+              }
+            ?>
+            </ul>
+          </div>
+        </div>
         <div class="owl-carousel" id="buletin">
           <div class="item">
             <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />

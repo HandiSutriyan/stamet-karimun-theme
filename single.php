@@ -2,7 +2,8 @@
 
 <?php
     while(have_posts()){
-        the_post(); ?>
+        the_post(); 
+    ?>
     
     <section class="content">
       <article>
@@ -12,9 +13,6 @@
             <small class="post-meta"><?php echo get_the_date( 'j F Y', $postData[0]->ID)?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
           </div>
           <hr class="gline" />
-          <div class="head-image">
-            <?php echo has_post_thumbnail() ? the_post_thumbnail('single-post-thumbnail'):"";?>
-          </div>
           <div class="post-text" style="text-align: justify"><?php the_content()?></div>
         </div>
 <?php    
@@ -29,7 +27,11 @@
             
             <?php
             $the_query = new WP_Query( 'posts_per_page=5' );
+            $cur_post_ID = get_the_ID(); //id displayed post
             while ($the_query -> have_posts()) : $the_query -> the_post();
+              $cat_name = get_the_category(get_The_ID())[0]->name;
+              // Menampilkan berita dan artikel saja
+              if($cat_name != 'Warning' && $cat_name != 'Buletin' && $cur_post_ID != get_the_ID()):
             ?>
             <div class="news-feed">
               <!-- <img src="/assets/img/buleti.png" alt="berita" width="100%" /> -->
@@ -43,8 +45,11 @@
                 </div>
               </a>
             </div>
-            <?php endwhile;
-            wp_reset_postdata();?>
+            <?php 
+             endif;
+            endwhile;
+            wp_reset_postdata();
+            ?>
 
           </div>
         </div>
@@ -61,6 +66,24 @@
           />
         </div>
         <div class="owl-carousel" id="buletin">
+          <?php
+          $buletin = new WP_Query( array( 
+            'category_name' => 'buletin',
+            'orderby'        => 'date',
+            'posts_per_page' => '5',
+            ) );
+          if ($buletin->have_posts()):
+            while($buletin->have_posts()):$buletin->the_post();
+            ?>
+            <div class="item">
+              <a href="<?php the_permalink() ?>">
+              <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+              </a>
+            </div>
+            <?php
+            endwhile;
+          else:
+          ?>
           <div class="item">
             <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
           </div>
@@ -70,6 +93,11 @@
           <div class="item">
           <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
           </div>
+          <?php
+          endif;
+          wp_reset_postdata();
+          ?>
+          
         </div>
         <div class="fb">
           <a class="twitter-timeline" data-lang="id" data-height="300" data-theme="light" href="https://twitter.com/bmkgkarimun?ref_src=twsrc%5Etfw">Tweets by bmkgkarimun</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

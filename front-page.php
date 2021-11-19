@@ -39,8 +39,13 @@ get_header();
             </div>
             <div class="warn-text">
               <?php
-              $peringatan_dini = new WP_Query( array( 'category_name' => 'warning' ) );
-              if ($peringatan_dini->have_posts()):
+              $peringatan_dini = new WP_Query(array( 
+                'category_name' => 'warning',
+                'orderby'        => 'date',
+                'posts_per_page' => '1'
+              ));
+              if ($peringatan_dini->have_posts()): 
+                $peringatan_dini->the_post();
               ?>
               <b><a href="<?php the_permalink();?>"><?php the_title();?></a></b>
               <br />
@@ -64,8 +69,16 @@ get_header();
           <!-- swiper -->
           <div class="owl-carousel owl-theme" id="news">
           <?php
-              while(have_posts()){
-                  the_post();
+          $post_thumb = new WP_Query(array( 
+            'orderby'        => 'date',
+            'posts_per_page' => '5',
+           ));
+           if($post_thumb->have_posts()):
+              while($post_thumb->have_posts()){
+                $post_thumb->the_post();
+                $cat_name = get_the_category(get_The_ID())[0]->name;
+                // Menampilkan berita dan artikel saja
+                if($cat_name != 'Warning' && $cat_name != 'Buletin'):
                  ?>
                     <div class="news">
                     <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
@@ -73,7 +86,7 @@ get_header();
                         <a href="<?php the_permalink() ?>">
                             <div class="headline">
                             <h2>
-                                <?php the_title(); ?>
+                                <?php echo the_title(); ?>
                             </h2>
                             <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?></i></small>
                             <p><?php the_excerpt(__('(more…)')); ?></p>
@@ -81,7 +94,26 @@ get_header();
                         </a>
                     </div>
                  <? 
-              }  
+                endif;
+              } 
+            else:
+            ?>
+            <div class="news">
+              <img src="/assets/img/berita.jpg" alt="berita" width="100%" />
+              <div class="filter"></div>
+              <a href="news.html">
+                <div class="headline">
+                  <h2>
+                    Cuaca di Karimun, Pemain Layangan Harus Waspadai Petir dan
+                    Puting Beliung
+                  </h2>
+                  <small><i>Oleh: Admin | 20 Januari 2021 </i></small>
+                </div>
+              </a>
+            </div>
+            <?php
+            endif;
+            wp_reset_postdata(); 
             ?>
 
           </div>
@@ -100,12 +132,18 @@ get_header();
         </div>
         <div class="owl-carousel" id="buletin">
           <?php
-          $buletin = new WP_Query( array( 'category_name' => 'buletin' ) );
+          $buletin = new WP_Query( array( 
+            'category_name' => 'buletin',
+            'orderby'        => 'date',
+            'posts_per_page' => '5',
+            ) );
           if ($buletin->have_posts()):
-            while($buletin->have_posts()):the_post();
+            while($buletin->have_posts()):$buletin->the_post();
             ?>
             <div class="item">
+              <a href="<?php the_permalink( ) ?>">
               <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+              </a>
             </div>
             <?php
             endwhile;
@@ -122,6 +160,7 @@ get_header();
           </div>
           <?php
           endif;
+          wp_reset_postdata();
           ?>
           
         </div>

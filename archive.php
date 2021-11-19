@@ -38,6 +38,7 @@ get_header();
               </div>
               <div class="post-text"><?php the_excerpt(__('(more…)')); ?></div>
           </div>
+          <hr class="post-line">
           <?php
             endwhile;
           else:
@@ -46,6 +47,7 @@ get_header();
             <p>Kembali ke <a href="<?php echo site_url(); ?>">Beranda</a></p>
           <?php
           endif;
+          wp_reset_postdata();
           ?>
           
         </div>
@@ -56,18 +58,25 @@ get_header();
             <h4><b>Kategori</b></h4>
           </div>
           <div class="card-content">
-            <?php echo the_category()?>
+            <ul class="cat_list">
+              <?php
+              $categories = get_categories();
+              foreach($categories as $category) {
+                echo '<li><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></li>';
+              }
+            ?>
+            </ul>
           </div>
         </div>
         <div class="card">
           <div class="container">
             <h4><b>Arsip</b></h4>
           </div>
-          <!-- <img
-            src="http://satelit.bmkg.go.id/IMAGE/ANIMASI/H08_EH_Kepri_m18.gif"
-            alt="Citra Satelit"
-            style="width: 100%"
-          /> -->
+          <div class="card-content">
+              <ul class="cat_list">
+              <?php wp_get_archives('type=monthly'); ?>
+              </ul>
+          </div>
         </div>
         <div class="owl-carousel" id="buletin">
           <div class="item">
