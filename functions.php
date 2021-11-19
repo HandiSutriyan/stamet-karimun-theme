@@ -3,7 +3,7 @@ function stamet_files(){
     wp_enqueue_script('jquery-main-js', "//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js", NULL, "1.0", true);
     wp_enqueue_script('carousel-main-js', "//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js", NULL, "1.0", true);
     wp_enqueue_script('stamet-main-js', get_theme_file_uri('/assets/js/script.js'), NULL, "1.0", true);
-    // wp_enqueue_script('stamet-peta-js', get_theme_file_uri('/assets/js/peta.js'), NULL, "1.0", true);
+    wp_enqueue_script('stamet-peta-js', get_theme_file_uri('/assets/js/peta.js'), NULL, "1.0", true);
     wp_enqueue_script( 'leaflet_styles', '//unpkg.com/leaflet@1.7.1/dist/leaflet.js');
 
     wp_enqueue_style('owl_carousel_style',"//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css");
