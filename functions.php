@@ -16,12 +16,12 @@ function stamet_files(){
     wp_enqueue_style( 'stamet_main_styles', get_stylesheet_uri());
 }
 
-function widgetInit(){
-    register_sidebar( array(
-        'name' => 'Sidebar',
-        'id' => 'sidebar1'
-    ) );
-}
+// function widgetInit(){
+//     register_sidebar( array(
+//         'name' => 'Sidebar',
+//         'id' => 'sidebar1'
+//     ) );
+// }
 
 the_post_thumbnail( 'thumbnail' ); // Thumbnail (default 150px x 150px max)
 the_post_thumbnail( 'medium'); // Medium resolution (default 300px x 300px max)
