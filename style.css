@@ -491,6 +491,10 @@ footer > .copyright {
     width: 95%;
     margin-bottom: 20px;
   }
+  /* HIDE EXCERPT ON MOBILE */
+  #excerpt {
+    display: none;
+  }
   .gallery a > img {
     max-width: 100%;
   }
