@@ -14,7 +14,9 @@ get_header();
                 <div class="tab">Memuat</div>
               </div>
               <div class="peta" id="peta">
-                <div class="lds-ripple"><div></div><div></div></div>
+                <div class="loader">
+                  <div class="lds-ripple"><div></div><div></div></div>
+                </div>
               </div>
               <div class="row-tab" id="foot-tab">
                 <div class="tab">00:00</div>

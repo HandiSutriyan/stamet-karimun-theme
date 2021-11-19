@@ -289,6 +289,18 @@ aside {
   width: 27%;
 }
 
+.nav-page {
+  text-align: center;
+}
+
+.nav-page a {
+  color: #262424;
+}
+.nav-page a:hover {
+  color: #28c74b;
+  text-decoration: none;
+}
+
 .card {
   width: 100%;
   margin-bottom: 20px;
@@ -395,6 +407,13 @@ footer > .copyright {
 }
 
 /* SPINNER */
+.loader {
+  position: relative;
+  top: 35%;
+  width: 25%;
+  margin: auto;
+}
+
 .lds-ripple {
   position: relative;
   width: 40%;

@@ -46,6 +46,24 @@ get_header();
           </div>
         </div>
         <div class="owl-carousel" id="buletin">
+          <?php
+          $buletin = new WP_Query( array( 
+            'category_name' => 'buletin',
+            'orderby'        => 'date',
+            'posts_per_page' => '5',
+            ) );
+          if ($buletin->have_posts()):
+            while($buletin->have_posts()):$buletin->the_post();
+            ?>
+            <div class="item">
+              <a href="<?php the_permalink( ) ?>">
+              <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+              </a>
+            </div>
+            <?php
+            endwhile;
+          else:
+          ?>
           <div class="item">
             <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
           </div>
@@ -55,6 +73,11 @@ get_header();
           <div class="item">
           <img src="<?php echo get_theme_file_uri('/assets/img/buleti.png') ?>" alt="buletin" />
           </div>
+          <?php
+          endif;
+          wp_reset_postdata();
+          ?>
+          
         </div>
         <div class="fb">
           <a class="twitter-timeline" data-lang="id" data-height="300" data-theme="light" href="https://twitter.com/bmkgkarimun?ref_src=twsrc%5Etfw">Tweets by bmkgkarimun</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
