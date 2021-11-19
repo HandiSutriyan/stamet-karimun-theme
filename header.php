@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/assets/img/favicon.ico"
+      href="<?php get_theme_file_uri('/assets/img/favicon.ico') ?>"
       type="image/x-icon"
     />
     <title><?php bloginfo('name')." ".wp_title(); ?></title>

@@ -77,7 +77,11 @@ get_header();
           </div>
           <div class="card-content">
               <ul class="cat_list">
-              <?php wp_get_archives('type=monthly'); ?>
+              <?php wp_get_archives(array(
+                'type'            => 'monthly',
+                'limit'           => 8,
+                'order'           => 'DESC'
+              )); ?>
               </ul>
           </div>
         </div>
