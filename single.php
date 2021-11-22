@@ -8,7 +8,7 @@
         <div class="news-article" style="margin-bottom: 100px">
           <div class="headline">
             <h2><?php the_title();?></h2>
-            <small class="post-meta"><?php echo get_the_date( 'j F Y', $postData[0]->ID)?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
+            <small class="post-meta"><?php echo get_the_date( 'j F Y')?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
           </div>
           <hr class="gline" />
           <div class="post-text" style="text-align: justify"><?php echo the_content() ?></div>
@@ -40,7 +40,7 @@
                   <p>
                     <?php the_title(); ?>
                   </p>
-                  <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?> </i></small>
+                  <small><i><?php echo get_the_date( 'j F Y')?> | oleh <?php the_author();?></i></small>
                 </div>
               </a>
             </div>

@@ -12,7 +12,7 @@ get_header();
             <div class="news-article" style="margin-bottom: 100px">
               <div class="headline">
                 <a href="<?php the_permalink() ?>"><h2><?php the_title();?></h2></a>
-                <small class="post-meta"><?php echo get_the_date( 'j F Y', $postData[0]->ID)?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
+                <small class="post-meta"><?php echo get_the_date( 'j F Y')?> | oleh <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')) ?>"><?php the_author();?></a></small>
               </div>
               <div class="post-text"><?php the_excerpt(__('(more…)')); ?></div>
           </div>

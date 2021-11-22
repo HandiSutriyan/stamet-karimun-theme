@@ -90,12 +90,12 @@ get_header();
                             <h2>
                                 <?php echo the_title(); ?>
                             </h2>
-                            <small><i>Oleh: <?php echo the_author_meta( 'display_name', $postData[0]->post_author ).' | '.get_the_date( 'j F Y', $postData[0]->ID) ?></i></small>
+                            <small><i><?php echo get_the_date( 'j F Y')?> | oleh <?php the_author();?></i></small>
                             <div id="excerpt"><?php the_excerpt(__('(more…)')); ?></div>
                             </div>
                         </a>
                     </div>
-                 <? 
+                 <?php 
                 endif;
               } 
             else:
