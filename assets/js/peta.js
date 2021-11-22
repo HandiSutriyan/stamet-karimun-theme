@@ -52,7 +52,7 @@ function loadDoc() {
 function getIcon(wcode) {
   let kode = wcode;
   let greenIcon = L.icon({
-    iconUrl: `wp-content/themes/stamet/assets/img/w-icon/P${kode}.png`,
+    iconUrl: `wp-content/themes/stamet-karimun-theme/assets/img/w-icon/P${kode}.png`,
     shadowUrl: null,
     iconSize: [60, 60], // size of the icon
     iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
