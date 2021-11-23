@@ -286,6 +286,10 @@ article {
   border-radius: 500px;
 }
 
+figcaption {
+  text-align: center;
+}
+
 aside {
   width: 27%;
 }
