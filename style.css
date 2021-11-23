@@ -288,6 +288,8 @@ article {
 
 figcaption {
   text-align: center;
+  color: #606161;
+  font-size: 0.75rem;
 }
 
 aside {
