@@ -102,6 +102,8 @@ const mymap = L.map("peta").setView([0.8065, 103.45], 10);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 12,
+  minZoom: 9,
 }).addTo(mymap);
 
 //modify tabs
