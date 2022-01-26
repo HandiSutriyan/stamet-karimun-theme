@@ -28,7 +28,7 @@ function getTgl(sum = 0) {
 
   let date =
     d.getDate() + sum < 10 ? "0" + (d.getDate() + sum) : d.getDate() + sum;
-  let month = d.getMonth() + 1 < 10 ? "0" + d.getMonth() + 1 : d.getMonth() + 1;
+  let month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
   fdate.fid = `${d.getDate() + sum} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
   fdate.fjs = `${d.getFullYear()}-${month}-${date}`;
   return fdate;
@@ -51,11 +51,17 @@ function loadDoc() {
 
 function getIcon(wcode) {
   let kode = wcode;
-  let greenIcon = L.icon({
-    iconUrl: `wp-content/themes/stamet-karimun-theme/assets/img/w-icon/P${kode}.png`,
-    shadowUrl: null,
-    iconSize: [60, 60], // size of the icon
-    iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+  const LeafIcon = L.Icon.extend({
+    options: {
+      shadowUrl: null,
+      iconSize: [60, 60], // size of the icon
+      iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+      popupAnchor: [-3, -3],
+    },
+  });
+
+  let greenIcon = new LeafIcon({
+    iconUrl: `wp-content/themes/stamet/assets/img/w-icon/P${kode}.png`,
   });
   return greenIcon;
 }
@@ -73,20 +79,11 @@ function generateMap(tgl, data, jam = "12:00") {
       let marker = L.marker([item.lat, item.long], {
         icon: getIcon(dc.$.weather),
       });
-      /* Marker with toolip
-      let marker = L.marker([item.lat, item.long], {
-        icon: getIcon(dc.weather),
-      }).bindTooltip(`<b>${item.kecamatan}</b>`, {
-        permanent: true,
-        direction: "bottom",
-        offset: L.point(0, 0),
-      });
-      */
-      //let splited = date.split(" ");
+
       if (arr_datetime[0] == tgl && arr_datetime[1] == jam) {
-        //console.log(date + " " + dc.time);
+        console.log(datetime);
         marker.addTo(mymap);
-        marker.bindPopup(`<b>${item.kecamatan}</b>`);
+        marker.bindPopup(`<b>${item.kecamatan}</b> <br> ${dc.$.w_ket}`);
       }
     });
   });
@@ -102,21 +99,10 @@ let kecamatan = JSON.parse(loadDoc());
 // MAP
 let mark;
 const mymap = L.map("peta").setView([0.8065, 103.45], 10);
-const mapToken =
-  "pk.eyJ1IjoiemFyYWhhZGlkIiwiYSI6ImNrdWU3YzE5cTFmZTAzMW12d21vaTVpazgifQ.3S9KANZaySSuEcW62bBNhg";
-L.tileLayer(
-  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-  {
-    attribution:
-      'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors,',
-    maxZoom: 12,
-    minZoom: 9,
-    id: "mapbox/streets-v11",
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: mapToken,
-  }
-).addTo(mymap);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(mymap);
 
 //modify tabs
 for (var i = 0; i < tabs.length; i++) {
@@ -161,4 +147,4 @@ for (var i = 0; i < foot_tabs.length; i++) {
 
 let def_datetime = getTgl();
 generateMap(def_datetime.fjs, kecamatan, def_datetime.time);
-console.log("peta.js loaded");
+console.log(kecamatan);
