@@ -84,13 +84,11 @@ function generateMap(tgl, data, jam = "12:00") {
     item.cuaca.forEach((dc, i) => {
       let datetime = dc.$.date;
       let arr_datetime = datetime.split(" ");
-      //console.log(item.lat);
       let marker = L.marker([item.lat, item.long], {
         icon: getIcon(dc.$.weather),
       });
 
       if (arr_datetime[0] == tgl && arr_datetime[1] == jam) {
-        console.log(datetime);
         marker.addTo(mymap);
         marker.bindPopup(`<b>${item.kecamatan}</b> <br> ${dc.$.w_ket}`);
       }
@@ -158,4 +156,4 @@ for (var i = 0; i < foot_tabs.length; i++) {
 
 let def_datetime = getTgl();
 generateMap(def_datetime.fjs, kecamatan, def_datetime.time);
-console.log(kecamatan);
+
