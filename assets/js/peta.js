@@ -63,7 +63,7 @@ function getIcon(wcode) {
   const LeafIcon = L.Icon.extend({
     options: {
       shadowUrl: null,
-      iconSize: [60, 60], // size of the icon
+      iconSize: [40, 40], // size of the icon
       iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
       popupAnchor: [-3, -3],
     },
