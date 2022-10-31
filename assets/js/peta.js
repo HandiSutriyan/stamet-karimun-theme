@@ -26,10 +26,19 @@ function getTgl(sum = 0) {
     }
   });
 
+  //NEW DATE
+  const sumDate = d.setDate(d.getDate() + sum);
+  const newDate = new Date(sumDate);
+
   let date =
-    d.getDate() + sum < 10 ? "0" + (d.getDate() + sum) : d.getDate() + sum;
-  let month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1;
-  fdate.fid = `${d.getDate() + sum} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
+    newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
+  let month =
+    newDate.getMonth() + 1 < 10
+      ? `0${newDate.getMonth() + 1}`
+      : newDate.getMonth() + 1;
+  fdate.fid = `${newDate.getDate()} ${
+    bulan[newDate.getMonth()]
+  } ${newDate.getFullYear()}`;
   fdate.fjs = `${d.getFullYear()}-${month}-${date}`;
   return fdate;
 }
