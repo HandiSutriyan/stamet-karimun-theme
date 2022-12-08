@@ -127,7 +127,17 @@ get_header();
             <h4><b>Citra Satelit</b></h4>
           </div>
           <img
-            src="http://satelit.bmkg.go.id/IMAGE/ANIMASI/H08_EH_Kepri_m18.gif"
+            src="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Kepri.png?id=49986f8y2zmqxus106iaa8t"
+            alt="Citra Satelit"
+            style="width: 100%"
+          />
+        </div>
+        <div class="card">
+          <div class="container">
+            <h4><b>Citra Radar</b></h4>
+          </div>
+          <img
+            src="https://inderaja.bmkg.go.id/Radar/BATA_SingleLayerCRefQC.png?id=61425mhidyyf3k4vvxx6dnf"
             alt="Citra Satelit"
             style="width: 100%"
           />
@@ -144,7 +154,7 @@ get_header();
             ?>
             <div class="item">
               <a href="<?php the_permalink( ) ?>">
-              <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+              <?php echo has_post_thumbnail() ? the_post_thumbnail('buletin-thumbnail'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
               </a>
             </div>
             <?php
