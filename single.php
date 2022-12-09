@@ -56,7 +56,7 @@
       <aside>
         <div class="card">
           <div class="container">
-            <h4><b>Citra Satelit</b></h4>
+            <h4><b>Citra Satelit Kep. Riau</b></h4>
           </div>
           <img
             src="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Kepri.png?id=49986f8y2zmqxus106iaa8t"
@@ -66,7 +66,7 @@
         </div>
         <div class="card">
           <div class="container">
-            <h4><b>Citra Radar</b></h4>
+            <h4><b>Citra Radar Batam</b></h4>
           </div>
           <img
             src="https://inderaja.bmkg.go.id/Radar/BATA_SingleLayerCRefQC.png?id=61425mhidyyf3k4vvxx6dnf"

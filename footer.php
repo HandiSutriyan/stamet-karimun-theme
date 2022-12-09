@@ -30,10 +30,10 @@
           <p class="foot-head">Tautan Terkait</p>
           <div class="foot-text">
             <ul>
-              <li><a href="">WMO</a></li>
-              <li><a href="">BMKG</a></li>
-              <li><a href="">Balai Besar MKG Wilayah I Medan</a></li>
-              <li><a href="">STMKG</a></li>
+              <li><a href="https://worldweather.wmo.int/en/home.html">WMO</a></li>
+              <li><a href="https://www.bmkg.go.id">BMKG</a></li>
+              <li><a href="https://balai1.bmkg.go.id">Balai Besar MKG Wilayah I Medan</a></li>
+              <li><a href="https://stmkg.ac.id">STMKG</a></li>
             </ul>
           </div>
         </div>
@@ -43,15 +43,15 @@
             <ul>
               <li>Telp. 0777-324320</li>
               <li><a href="">WhatsApp</a></li>
-              <li><a href="">Email</a></li>
+              <li><a href="">Email: meteo.tbk@gmail.com</a></li>
             </ul>
           </div>
           <p class="foot-head" style="margin-top: 20px">Follow Us</p>
           <div class="foot-text">
             <ul>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">Instagram</a></li>
-              <li><a href="">Youtube</a></li>
+              <li><a href="https://facebook.com/bmkgkarimun">Facebook</a></li>
+              <li><a href="https://instagram.com/bmkgkarimun/">Instagram</a></li>
+              <li><a href="https://www.youtube.com/@BMKGKarimun">Youtube</a></li>
             </ul>
           </div>
         </div>
