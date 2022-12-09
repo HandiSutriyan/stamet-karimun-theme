@@ -54,7 +54,7 @@
             ?>
             <div class="item">
               <a href="<?php the_permalink( ) ?>">
-              <?php echo has_post_thumbnail() ? the_post_thumbnail('large'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
+              <?php echo has_post_thumbnail() ? the_post_thumbnail('buletin-thumbnail'):"<img src=".get_theme_file_uri('/assets/img/no-image.jpg').">";?>
               </a>
             </div>
             <?php
