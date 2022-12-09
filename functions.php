@@ -42,3 +42,28 @@ add_image_size( 'buletin-thumbnail', 300, 500, true );
 register_nav_menus( array(
     'primary' => __('Primary Menu'),
 ));
+
+/**
+ * Register widget area.
+ *
+ * @since Twenty Twenty-One 1.0
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ *
+ * @return void
+ */
+function stamet_widgets_init() {
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Media Sosial', 'stamet' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Tambahkan widget di sini.', 'stamet' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'stamet_widgets_init' );
