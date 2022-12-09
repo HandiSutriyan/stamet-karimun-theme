@@ -76,10 +76,10 @@
           ?>
           
         </div>
-        <div class="fb">
-          <a class="twitter-timeline" data-lang="id" data-height="300" data-theme="light" href="https://twitter.com/bmkgkarimun?ref_src=twsrc%5Etfw">Tweets by bmkgkarimun</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <a href="https://twitter.com/intent/tweet?screen_name=bmkgkarimun&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @bmkgkarimun</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </div>
+        <!-- .widget-area -->
+        <div class="widget-area">
+		      <?php dynamic_sidebar( 'sidebar-1' ); ?>
+	      </div>
       </aside>
 </section>
 
