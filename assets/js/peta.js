@@ -1,3 +1,5 @@
+const API_URL =
+  "https://cuaca-kecamatan-api.netlify.app/.netlify/functions/api/kab. karimun/cuaca";
 function getTgl(sum = 0) {
   const d = new Date();
   let fdate = { fid: "", fjs: "", time: "" };
@@ -45,8 +47,7 @@ function getTgl(sum = 0) {
 
 function loadDoc() {
   const xhttp = new XMLHttpRequest();
-  const url =
-    "https://api-cuaca-karimun.netlify.app/.netlify/functions/api/cuaca?kab=Kab.%20Karimun";
+  const url = API_URL;
   let response = "";
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -82,15 +83,15 @@ function generateMap(tgl, data, jam = "12:00") {
 
   data.forEach((item) => {
     item.cuaca.forEach((dc, i) => {
-      let datetime = dc.$.date;
+      let datetime = dc.date;
       let arr_datetime = datetime.split(" ");
       let marker = L.marker([item.lat, item.long], {
-        icon: getIcon(dc.$.weather),
+        icon: getIcon(dc.weather),
       });
 
       if (arr_datetime[0] == tgl && arr_datetime[1] == jam) {
         marker.addTo(mymap);
-        marker.bindPopup(`<b>${item.kecamatan}</b> <br> ${dc.$.w_ket}`);
+        marker.bindPopup(`<b>${item.kecamatan}</b> <br> ${dc.w_ket}`);
       }
     });
   });
@@ -156,4 +157,3 @@ for (var i = 0; i < foot_tabs.length; i++) {
 
 let def_datetime = getTgl();
 generateMap(def_datetime.fjs, kecamatan, def_datetime.time);
-
